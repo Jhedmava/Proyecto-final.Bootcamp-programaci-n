@@ -1,0 +1,429 @@
+/* Reset general */
+* {
+    margin: 0;                             /* Elimina márgenes por defecto */
+    padding: 0;                            /* Elimina relleno por defecto */
+    box-sizing: border-box;               /* Hace que el padding no afecte el ancho total */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente legible y moderna */
+  }
+  
+  /* Estilos del body */
+  body {
+    background-color: #c3c5c7;            /* Fondo gris claro */
+    color: #333;                          /* Texto gris oscuro */
+    line-height: 1.6;                      /* Espaciado de líneas */
+    display: flexbox;                  /* Flexbox para centrar contenido */
+    align-items: center;                /* Centrado vertical */
+    justify-content: center;           /* Centrado horizontal */
+  }
+  
+  /* Encabezado */
+  header {
+    position: fixed; /* Necesario para poner una capa encima de la imagen */
+    justify-content: space-between; /* Espacio entre logo y menú */
+    transition: 0.7s;
+    padding: 2.5px 12px; /* Espacio interno arriba/abajo (5rem), lados (2rem) */
+    display: flex; /* Cambia a flexbox para alinear elementos */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo */
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  }
+
+  header.abajo {
+    background: rgba(0, 0, 0, 0.9); /* Fondo negro opaco */
+    padding: 10px 20px;
+  }
+
+  header .logo {
+    position: relative;
+    color: black; /* Color blanco */
+    font-weight: bold; /* Negrita */
+    font-size: 2em;
+    letter-spacing: 1px;
+    transition: 2500ms;
+    text-decoration: none; /* Elimina subrayado */
+    justify-content: center; /* Centra el logo */
+
+  }
+  
+  .logo img{
+    position: relative;
+    width: 50px; /* Ancho del logo */
+    height: 50px; /* Alto del logo */
+    margin-right: 10px; /* Espacio entre logo y texto */
+    vertical-align: middle; /* Alinea verticalmente el logo */
+
+  }
+  /* Navegación */
+ nav {
+   display: flex;        /* Distribuye los elementos en espaciados equitativos */
+   align-items: center;
+   letter-spacing: 0.5px;
+ }
+
+ header ul {
+   position: relative;
+   display: flex;                          /* Layout en línea */
+   justify-content: center;  
+   align-items: center;                       /* Elimina el margen por defecto */
+ }
+
+ header ul li {
+    list-style: none;                      /* Elimina el marcador de lista por defecto */
+    margin-right: 2rem;                   /* Espacio entre elementos */
+  }
+  header ul li:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 5px; /* Espacio interno */
+    transition: 0.8s; /* Transición suave */
+  }
+
+  header ul a {
+    position: relative;
+    font-family: 'segoe ui', sans-serif; /* Fuente legible y moderna */
+    margin: 0 1px;
+    text-decoration: none;               /* Elimina el subrayado */
+    color: black;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.7s;
+    padding: 1;                /* Espacio interno */
+  }
+
+  .zona1 {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: url(./images/hand-holding-pen-collection-icons.jpg);
+    background-size: cover;
+    background-position: center;
+    /* Imagen centrada, que cubre todo el fondo y no se repite */
+  }
+  
+  .card  {
+    position: relative; /* Necesario para poner una capa encima de la imagen */
+    width: 300px;
+    height: 350px;
+    margin: 30px; /* Espacio entre tarjetas */
+    display: inline-block; /* Permite que las tarjetas se alineen en línea */
+    animation: pulse 1800ms ; /* Animación de pulso */
+    animation-delay: 0.1s; /* Retraso de la animación */
+    margin-left: 43px; /* Espacio a la izquierda */
+  
+  }
+
+  .card .face {
+    position: absolute; /* Posiciona la cara de la tarjeta */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    backface-visibility: hidden; /* Oculta la parte trasera cuando se gira */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: transform 0.5s; /* Transición suave al girar */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+  }
+
+  .card .front {
+
+    transform: perspective(600px) rotateY(0deg); /* Vista en perspectiva y rotación inicial */
+    box-shadow: 0 5px 10px black; /* Sombra ligera */
+  }
+
+  .card .front img {
+    position: absolute; /* Posiciona la imagen dentro de la tarjeta */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    object-fit: cover; /* Cubre el área de la tarjeta sin distorsionar la imagen */
+
+  }
+
+  .card .front h3 {
+    position: absolute; /* Posiciona el título dentro de la tarjeta */
+    bottom: 0; /* Alinea al fondo */
+    width: 100%; /* Ancho completo */
+    height: 45px; /* Alto fijo */
+    line-height: 45px; /* Centra verticalmente el texto */
+    color: white; /* Texto blanco */
+    background: rgba(0, 0, 0, .6); /* Fondo*/
+    text-align: center; /* Centra el texto horizontalmente */
+  }
+
+  .card .back {
+    transform: perspective(600px) rotateY(180deg); /* Vista en perspectiva y rotación de 180 grados */
+    background: #0f172a; /* Fondo azul oscuro */
+    color: white; /* Texto blanco */
+    display: flex; /* Flexbox para centrar contenido */
+    padding: 15px; /* Espacio interno */
+    justify-content: space-between; /* Espacio entre elementos */
+    flex-direction: column; /* Coloca los elementos en columna */
+    text-align: center; /* Centra el texto horizontalmente */
+    box-shadow: 0 5px 10px black; /* Sombra ligera */
+  }    
+
+  .card .back .link {
+    border-top: solid 1px white; /* Línea superior blanca */
+    height: 50px; /* Alto fijo */
+    line-height: 50px; /* Centra verticalmente el texto */
+  }
+
+  .card .back .link a {
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold; /* Negrita */
+  }
+  .card .back .link a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+  }
+
+  .card .back h3 {
+    font-size: 30px; /* Tamaño de fuente grande */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    letter-spacing: 1px; /* Espaciado entre letras */
+  }
+
+  .card .back .p {
+    letter-spacing: 1px; /* Espaciado entre letras */
+  }
+
+  .card:hover .front {
+    transform: perspective(600px) rotateY(180deg); /* Gira la tarjeta al pasar el ratón */
+  }
+  
+  .card:hover .back {
+    transform: perspective(600px) rotateY(360deg); /* Gira la tarjeta al pasar el ratón */
+  }
+
+  .red-apoyo {
+    display: flex;                        /* Layout en grid */
+    gap: 5rem;                             /* Espacio entre columnas */
+    padding: 3rem;                         /* Espaciado interno */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    margin: 13px; /* Espacio entre tarjetas */
+    animation: fadeInDown 3500ms; /* Animación de entrada */
+    animation-delay: 0.1s; /* Retraso de la animación */
+    margin-top: -25px; /* Espacio entre tarjetas */
+
+  }
+
+  .title {
+    font-size: 45px; /* Tamaño de fuente grande */
+    color: #fff; /* Color del texto */
+    background-color: rgba(0, 0, 0, .8); /* Fondo*/
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno */
+  }
+
+  .red-apoyo h3 {
+    font-size: 35px;
+    margin-bottom: 12px; /* Espacio debajo del título */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    line-height: 1em; /* Espaciado entre líneas */
+  }
+
+  .red-apoyo p {
+    font-size: 12px;
+
+  }
+  main {
+    display: flex;                        /* Layout en grid */
+    grid-template-columns: 1fr 3fr;       /* Aside 1 parte, section 3 partes */
+    gap: 2rem;                             /* Espacio entre columnas */
+    padding: 2rem;                         /* Espaciado interno */
+  }
+  
+  
+  
+  #conceptos-clave {
+    display: flex;    
+    margin: 30px;
+    padding: 100px;              /* Alineación en fila */
+  }
+
+  .noticias {
+    margin: 12px; /* Espacio entre tarjetas */
+    padding: 100px;              /* Alineación en fila */
+  }
+  
+   /* Contenedores dentro de section */
+   section > div {
+    background-color: white;              /* Fondo blanco */
+    padding: 2rem;                         /* Espaciado interno */
+    margin-bottom: 2rem;                  /* Separación inferior */
+    border-radius: 10px;                  /* Bordes redondeados */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);/* Sombra ligera */ 
+  }
+  /* Títulos */
+  h2 {
+    color: #1e293b;                       /* Azul oscuro-grisáceo */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-bottom: 2rem; /* Espacio debajo del título */                 /* Espacio debajo del título */
+  }
+
+  .datos {
+    margin: 12px; /* Espacio entre tarjetas */
+    padding: 100px;              /* Alineación en fila */
+  }
+  
+  .graficas {
+    width: auto; /* Ancho fijo */
+    padding: 40px; /* Espacio interno */
+    margin: auto; /* Centra la sección */
+    flex-direction: column; /* Coloca los elementos en columna */
+    gap: 20px; /* Espacio entre elementos */
+    margin-top: 20px; /* Espacio superior */
+    display: flex; /* Flexbox para alinear elementos */
+
+  }
+
+  summary {
+    background: rgb(146, 131, 89); /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 20px; /* Espacio interno */
+    list-style: none; /* Elimina el marcador de lista por defecto */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    margin: 10px; /* Espacio entre tarjetas */
+
+  }
+  .controls {
+    display: inline; /* Flexbox para alinear elementos */
+    padding: 10px; /* Espacio interno */
+    gap: 30px; /* Espacio entre botones */
+    margin-bottom: 2px; /* Espacio inferior */
+    border-radius: 15px; /* Bordes redondeados */
+    background: rgb(146, 131, 89, .6); /* Fondo azul */
+    color: white; /* Texto blanco */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: space-around; /* Espacio entre botones */
+    margin: 10px; /* Espacio entre tarjetas */
+    transition: background-color 0.3s ease; /* Animación de cambio de color */
+    box-shadow: #333 0px 0px 5px; /* Sombra ligera */
+  }
+
+  input::placeholder {
+    color: #fff; /* Color del texto */
+    font-size: 12px; /* Tamaño de fuente */
+  }
+
+  .form-register .boton {
+    background: rgb(146, 131, 89); /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Animación de cambio de color */
+  }
+
+  .form-register .boton:hover {
+    background: rgb(146, 131, 89, .8); /* Fondo azul más oscuro */
+  }
+  .form-register .boton:active {
+    background: rgb(146, 131, 89, .9); /* Fondo azul más oscuro */
+  }
+
+  .evaluacion {
+    display: block;                        /* Layout en grid */
+
+  }
+
+
+  
+  canvas {
+    width: 60% !important; /* El canvas ocupará el 100% del ancho disponible (con !important para sobrescribir cualquier otro estilo) */
+    height: auto !important; /* La altura se ajusta automáticamente según el ancho (mantiene proporción) */
+    margin: auto; /* Centra el canvas horizontalmente */
+  }
+  
+  /* Pie de página */
+  .footer {
+    position: relative;
+    width: 100%;
+    background: rgba(143, 78, 25, 0.7);
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 5px 5px;
+    flex-wrap: wrap;
+  }
+  
+  .icon-elem {
+    list-style: none;
+  }
+  
+  .icon {
+    color: white;
+    font-size: 32px;
+    display: inline-block;
+    margin: 0 10px;
+    transition: 0.5s;
+  }
+  
+  .icon:hover {
+    transform: translateY(-10px);
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+  }
+  
+  .menu-elem {
+    list-style: none;
+  }
+  .menu-icon {
+    color: white;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px 10px;
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+  
+  .menu-icon:hover {
+    opacity: 1;
+  }
+  
+  .text {
+    color: white;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
+
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;         /* Cambia a una sola columna */
+    }
+  }
+
+  header.abajo .logo,
+  header.abajo nav ul a {
+    color: #fff;                       /* Azul oscuro-grisáceo */
+  }
+
+  header.abajo .logo,
+  header.abajo nav ul a:hover {
+    color: #f74949;                       
+  } 
+  
